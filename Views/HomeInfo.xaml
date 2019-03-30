@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.HomeInfo">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Label Text="Home &amp; Bedroom Info" TextColor="{StaticResource DarkBackgroundColor}" FontAttributes="Bold"  FontSize="{StaticResource LargeFontSize}"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                <StackLayout Grid.Row="1" BackgroundColor="{StaticResource LightBackgroundColor}" 
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="Fill">
+                    <Grid BackgroundColor="{StaticResource LightBackgroundColor}" >
+                        <BoxView BackgroundColor="{StaticResource LightBackgroundColor}"  />
+                        <Grid Grid.Row="0" BackgroundColor="{StaticResource LightBackgroundColor}" Margin="0,0,0,1">
+                           
+                            <Entry Placeholder="Home Address (Confidential)*" 
+                           PlaceholderColor="Black"
+                           Grid.Column="0"
+                           BackgroundColor="White">
+                            </Entry>
+                        </Grid>
+                    </Grid>
+                     <Grid BackgroundColor="{StaticResource LightBackgroundColor}" >
+                        <BoxView BackgroundColor="{StaticResource BorderColor}"  />
+                        <Grid Grid.Row="0" BackgroundColor="{StaticResource LightBackgroundColor}" Margin="0,0,0,1">
+                            <!--<SearchBar  Placeholder="Search People" 
+                                            PlaceholderColor="Black" 
+                                            TextColor="Black"
+                                            BackgroundColor="White"
+                                            x:Name="srbSearchPeople" />-->
+                        </Grid>
+                    </Grid>
+                    <Grid BackgroundColor="{StaticResource LightBackgroundColor}" >
+                        <BoxView BackgroundColor="{StaticResource BorderColor}"  />
+                        <Grid Grid.Row="0" BackgroundColor="{StaticResource LightBackgroundColor}" Margin="0,0,0,1">
+                                  <Label Text="Picker - Data in ItemsSource" FontAttributes="Bold" HorizontalOptions="Center" />
+                                    <Picker x:Name="picker" Title="Select" TextColor="Black" BackgroundColor="Red">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Select</x:String>
+                                               
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                            
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

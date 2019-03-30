@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlatmateFinders.ViewModels"
+             xmlns:Helpers="clr-namespace:FlatmateFinders.Services"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.FAQsPage">
+    <ContentPage.BindingContext>
+        <local:FAQViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:BoolToImageConverter x:Key="BoolCheckboxConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            
+            
+            <Label Grid.Row="0" Text="Login Help and FAQ"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       />
+            
+            <Image Grid.Row="0" Source="blue.png"
+                       Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <StackLayout Grid.Row="1" VerticalOptions="Center">
+                <Label Text="For further assistance, send a message to our"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource MediumFontSize}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       />
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+
+                    <Label Text="service team from the "
+                       TextColor="{StaticResource PrimaryTextColor}"
+                        HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                       FontSize="{StaticResource MediumFontSize}" />
+
+                    <Label Text="Contact us" FontAttributes="Bold" TextColor="{StaticResource turquoiseBlueTwo}" FontFamily="{StaticResource BoldFont}"  VerticalOptions="Center"
+                        HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="Contact_Tapped" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+
+            <ListView  Grid.Row="2" Margin="20,0,0,0"
+              ItemTapped="ListViewItem_Tabbed"  
+              ItemsSource="{Binding FAQs}"  
+              HasUnevenRows="True"  SeparatorColor="{StaticResource BlueyGrey}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" >
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Title}" Margin="0,15,0,15"
+                                        FontSize="{StaticResource FontSize}"  
+                                        Grid.Column="0"
+                                        TextColor="{StaticResource PrimaryTextColor}" 
+                                        FontFamily="{StaticResource BoldFont}" />
+
+                                    <ffSvg:SvgCachedImage Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding Isvisible, Converter={StaticResource BoolCheckboxConverter}, ConverterParameter=arrow}" HeightRequest="8" />
+                                </Grid>
+                                <StackLayout IsVisible="{Binding Isvisible}"  
+                                     Orientation="Horizontal"  Padding="0,0,15,30"
+                                     >
+                                    <Label Text="{Binding Description}"
+                                            LineBreakMode="WordWrap"
+                                           Margin="0,10,0,10"
+                                            TextColor="{StaticResource PrimaryTextColor}"
+                                            FontSize="{StaticResource FontSize}"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalOptions="Center" HorizontalOptions="Center"
+                                           XAlign="Start"
+                                           />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

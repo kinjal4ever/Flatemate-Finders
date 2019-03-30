@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:views="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+             xmlns:Helpers="clr-namespace:FlatmateFinders.Services"
+             xmlns:ffControls="clr-namespace:FlatmateFinders.Controls"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.AddBedRoom">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:BoolToImageConverter x:Key="BoolToColorConverter" />
+            <Helpers:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+            <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".1*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Text="Add Bedroom"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource LargeFontSize}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+
+                <Image Grid.Row="0" Source="blue.png"
+                               Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="40">
+                    <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnDone_Clicked"  NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            <ScrollView Margin="20,0,20,0" Grid.Row="1" VerticalScrollBarVisibility="Never">
+                <StackLayout >
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center"  HeightRequest="700">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.1*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="*"/>
+                            
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="1" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Date available " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="Transparent" BorderColor="{StaticResource silver}" CornerRadius="10"  Padding="0"  Grid.Column="0" HasShadow="False" >
+                            <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+                                
+                                <views:BorderlessDatePicker HorizontalOptions="FillAndExpand" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource BodyFontSize}" 
+                                                            Format="dd/MM/yyyy" 
+                                                   VerticalOptions="Center" 
+                                   ></views:BorderlessDatePicker>
+                                <ffSvg:SvgCachedImage Source="iconCalendar.svg" HeightRequest="20" HorizontalOptions="End"  VerticalOptions="Center">
+                                    <ffSvg:SvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" />
+                                    </ffSvg:SvgCachedImage.GestureRecognizers>
+                                </ffSvg:SvgCachedImage>
+                            </StackLayout>
+                        </Frame>
+                        </Grid>
+                        
+                        <Label Grid.Row="4" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Period available " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                         <Frame BackgroundColor="Transparent" BorderColor="{StaticResource silver}" CornerRadius="10"  Padding="0"  Grid.Row="5" HasShadow="False" >
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="12*"/>
+                                    <ColumnDefinition Width=".1*"/>
+                                    <ColumnDefinition Width="12*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Min stay" VerticalTextAlignment="End" HorizontalTextAlignment="Center"
+                                           Grid.Row="0" FontSize="{StaticResource FontSize}"
+                                           TextColor="{StaticResource PrimaryTextColor}"/>
+                                    <views:BorderlessPicker Title="Select" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource FontSize}" >
+                                        <views:BorderlessPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Select</x:String>
+                                            </x:Array>
+                                        </views:BorderlessPicker.ItemsSource>
+                                    </views:BorderlessPicker>
+                                </Grid>
+                                <StackLayout BackgroundColor="{StaticResource silver}" Grid.Column="1"/>
+                                <Grid Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Max stay" VerticalTextAlignment="End" HorizontalTextAlignment="Center"
+                                           Grid.Row="0" FontSize="{StaticResource FontSize}"
+                                           TextColor="{StaticResource PrimaryTextColor}"/>
+                                    <views:BorderlessPicker Title="Select"  Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource FontSize}" >
+                                        <views:BorderlessPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Select</x:String>
+                                            </x:Array>
+                                        </views:BorderlessPicker.ItemsSource>
+                                    </views:BorderlessPicker>
+                                </Grid>
+                            </Grid>
+                             
+                         </Frame>
+                        
+                        <Label Grid.Row="7" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Bedroom rent " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Frame BackgroundColor="Transparent" BorderColor="{StaticResource silver}" CornerRadius="10"  Padding="0"  Grid.Row="8" HasShadow="False" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="12*"/>
+                                    <ColumnDefinition Width=".1*"/>
+                                    <ColumnDefinition Width="12*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="For  single" VerticalTextAlignment="End" HorizontalTextAlignment="Center"
+                                           Grid.Row="0" FontSize="{StaticResource FontSize}"
+                                           TextColor="{StaticResource PrimaryTextColor}"/>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="1">
+                                        <Label Text="$" Margin="0,2,0,0" HorizontalTextAlignment="End" TextColor="{StaticResource BlueyGrey}" FontSize="{StaticResource FontSize}"/>
+                                        <views:BorderlessEntry  Text="0" HorizontalTextAlignment="Center" WidthRequest="40" TextColor="{StaticResource BlueyGrey}" FontSize="{StaticResource FontSize}" />
+                                    </StackLayout>
+                                </Grid>
+                                <StackLayout BackgroundColor="{StaticResource silver}" Grid.Column="1"/>
+                                <Grid Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="For  couple" VerticalTextAlignment="End" HorizontalTextAlignment="Center"
+                                           Grid.Row="0" FontSize="{StaticResource FontSize}"
+                                           TextColor="{StaticResource PrimaryTextColor}"/>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="1">
+                                        <Label Text="$" Margin="0,2,0,0" HorizontalTextAlignment="End" TextColor="{StaticResource BlueyGrey}" FontSize="{StaticResource FontSize}"/>
+                                        <views:BorderlessEntry  Text="0" HorizontalTextAlignment="Center" WidthRequest="40" TextColor="{StaticResource BlueyGrey}" FontSize="{StaticResource FontSize}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+
+                        </Frame>
+
+                        <Label Grid.Row="10" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Does rent include bills? " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Orientation="Horizontal" Grid.Row="11">
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="BillList"
+                                                      ItemsSource="{Binding BillList}" 
+                                                      NoOfColumns="4" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Button StyleId="BillList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                        
+                        <Label Grid.Row="13" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="How much is the bond? " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Grid.Row="14">
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="BondList"
+                                                      ItemsSource="{Binding BondList}" 
+                                                      NoOfColumns="4" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Button StyleId="BondList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+
+
+                        <Label Grid.Row="16" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Private or shared bedroom? " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Orientation="Horizontal" Grid.Row="17">
+                            <Button Style="{Binding IsShared, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelectionReverse}" Text="Private bedroom" x:Name="Private" Command="{Binding PrivateCommand}" Clicked="Private_Clicked" ></Button>
+                            <Button Style="{Binding IsShared, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Text="Shared bedroom" x:Name="Shared" Command="{Binding SharedCommand}" Clicked="Shared_Clicked" ></Button>
+                        </StackLayout>
+
+                        
+                    </Grid>
+                    <Grid IsVisible="{Binding IsShared}" WidthRequest="100" x:Name="SharedView">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.3*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Number of Beds " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Grid.Row="2" Orientation="Horizontal" >
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="NoOfBedList"
+                                                      ItemsSource="{Binding NoOfBedList}" 
+                                                      NoOfColumns="5" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Button StyleId="NoOfBedList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked" BorderWidth="1" WidthRequest="50" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </Grid>
+                    <Grid IsVisible="{Binding IsShared,Converter={StaticResource InverseBoolConverter}}" x:Name="PrivateView">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.7*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.3*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.3*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Bedroom Size " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="BedroomSizeList"
+                                                      ItemsSource="{Binding BedroomSizeList}" 
+                                                      NoOfColumns="4" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Frame StyleId="BedroomSizeList" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleFrameSelection}">
+                                                        <Frame.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ListFrame_Tapped" NumberOfTapsRequired="1" />
+                                                        </Frame.GestureRecognizers>
+                                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                                            <Label Text="{Binding Text}" FontSize="{StaticResource BodyFontSize}" TextColor="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleFrameColor}" HorizontalTextAlignment="Center"/>
+                                                            <Label Text="{Binding SubText}" FontSize="{StaticResource SmallFontSize}" TextColor="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleFrameColor}" HorizontalTextAlignment="Center"/>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+
+                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width=".1*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width=".1*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width=".2*"/>
+                            </Grid.ColumnDefinitions>
+                                <Frame Grid.Column="0" CornerRadius="10" BorderColor="{StaticResource tealish}" Padding="0" HasShadow="False">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="Small" FontSize="{StaticResource BodyFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                        <Label Text="Single Bad" FontSize="{StaticResource SmallFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            <Frame Grid.Column="2" CornerRadius="10" BorderColor="{StaticResource tealish}" Padding="0" HasShadow="False">
+                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Label Text="Medium" FontSize="{StaticResource BodyFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                            <Label Text="Single Bad" FontSize="{StaticResource SmallFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                </Frame>
+                            <Frame Grid.Column="4" CornerRadius="10" BorderColor="{StaticResource tealish}" Padding="0" HasShadow="False">
+                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Label Text="Large" FontSize="{StaticResource BodyFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                            <Label Text="Single Bad" FontSize="{StaticResource SmallFontSize}" TextColor="{StaticResource BlueGrey}" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                </Frame>-->
+                            </StackLayout>
+
+
+                        <Label Grid.Row="4" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Bedroom furniture " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Grid.Row="5">
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="BedroomFurnitureList"
+                                                      ItemsSource="{Binding BedroomFurnitureList}" 
+                                                      NoOfColumns="4" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Button StyleId="BedroomFurnitureList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+
+                        <Label Grid.Row="7" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Bathroom facilities " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Grid.Row="8">
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <ffControls:RepeaterView x:Name="BathroomfaciliteiesList"
+                                                      ItemsSource="{Binding BathroomfaciliteiesList}" 
+                                                      NoOfColumns="4" >
+                                        <ffControls:RepeaterView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <Button StyleId="BathroomfaciliteiesList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </ffControls:RepeaterView.ItemTemplate>
+                                    </ffControls:RepeaterView>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </Grid>
+                    <Grid HeightRequest="300">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="1.3*"/>
+                            <RowDefinition Height=".2*"/>
+                            <RowDefinition Height=".5*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Bedroom features " />
+                                    <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Frame BackgroundColor="Transparent" BorderColor="{StaticResource silver}" CornerRadius="10"  Padding="0"  Grid.Row="2" HasShadow="False" >
+                            <StackLayout Orientation="Horizontal">
+                                <ffSvg:SvgCachedImage Source="search.png" 
+                                    Margin="10,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="30">
+                                    <ffSvg:SvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="BedroomFeatures_Tapped" NumberOfTapsRequired="1" />
+                                    </ffSvg:SvgCachedImage.GestureRecognizers>
+                                </ffSvg:SvgCachedImage>
+                                <views:BorderlessEntry Text="{Binding Features}" Placeholder="Select one or more options" HorizontalOptions="FillAndExpand" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource BodyFontSize}" 
+                                                   VerticalOptions="Center" >
+                                </views:BorderlessEntry>
+                                <ffSvg:SvgCachedImage Source="iconNextDark.svg" HeightRequest="20" Margin="0,0,20,0" HorizontalOptions="End"  VerticalOptions="Center" >
+                                    <ffSvg:SvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="BedroomFeatures_Tapped" NumberOfTapsRequired="1" />
+                                    </ffSvg:SvgCachedImage.GestureRecognizers>
+                                </ffSvg:SvgCachedImage>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Grid.Row="4" Text="Other Information" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                        </Label>
+                        <Frame BackgroundColor="Transparent" BorderColor="{StaticResource silver}" CornerRadius="10"   Grid.Row="5" HasShadow="False">
+                            <ffControls:FFEditor PlaceholderColor="{StaticResource BlueyGrey}" Placeholder="Write here…" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                        </Frame>
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Grid.Row="2" VerticalOptions="End" BackgroundColor="{StaticResource clean}"  >
+                <Grid Margin="20,10,20,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Done"
+                        x:Name="Done"
+                        Grid.Column="2"
+                        TextColor="{StaticResource clean}"
+                        BackgroundColor="{StaticResource PrimaryButton}"
+                        FontSize="{StaticResource FontSize}"
+                        FontFamily="{StaticResource SemiBoldFont}"
+                        CornerRadius="10"
+                        VerticalOptions="Center"
+                        HeightRequest="50"
+                        WidthRequest="100"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="BtnDone_Clicked"
+                        />
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

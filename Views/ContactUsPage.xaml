@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+             xmlns:behaviors="clr-namespace:FlatmateFinders.Services"
+             xmlns:ffControls="clr-namespace:FlatmateFinders.Controls"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.ContactUsPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource PrimaryFormBackground}">
+                <Grid  HeightRequest="600">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height=".5*"/>
+                    </Grid.RowDefinitions>
+
+                    
+                    <Label Grid.Row="0" Text="Contact us"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource LargeFontSize}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+
+                    <Image Grid.Row="0" Source="blue.png"
+                               Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <StackLayout Grid.Row="1" VerticalOptions="Center">
+                        <Label Text="Our customer service team are here to"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource MediumFontSize}"
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                               />
+                        <Label Text="assist you 7 days per week."
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource MediumFontSize}"
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"                />
+                    </StackLayout>
+
+                    <Grid Grid.Row="2" Margin="20,10,20,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".25*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".25*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height=".25*"/>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height=".25*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <views:MaterialEntry Placeholder="Full name" x:Name="Fullname" Grid.Column="0" Text="{Binding Fullname}" AccentColor="{StaticResource FocusedColor}"  DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}" >
+                            <views:MaterialEntry.Behaviors>
+                                <behaviors:LengthValidationBehavior MaxLength="100" MinLength="1" />
+                            </views:MaterialEntry.Behaviors>
+                        </views:MaterialEntry>
+                        <Label Text="{Binding FirstNameValidationMessage}" x:Name="NameValidationMessage" Grid.Row="1" HorizontalTextAlignment="Start"  VerticalTextAlignment="Start" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+                        
+                        <views:MaterialEntry Placeholder="Email address" Grid.Row="2" Text="{Binding Email}" AccentColor="{StaticResource FocusedColor}" DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}" >
+                            <views:MaterialEntry.Behaviors>
+                                <behaviors:EmailValidationBehavior MaxLength="100" MinLength="1" />
+                            </views:MaterialEntry.Behaviors>
+                        </views:MaterialEntry>
+                        <Label Text="" x:Name="EmailValidationMessage" Grid.Row="3" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+
+                        <views:MaterialPicker Placeholder="Select subject" Padding="0,7" Grid.Row="4"  AccentColor="{StaticResource FocusedColor}" DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}" >
+                            <views:MaterialPicker.Items>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Type 1</x:String>
+                                    <x:String>Type 2</x:String>
+                                    <x:String>Type 3</x:String>
+                                    <x:String>Other</x:String>
+                                </x:Array>
+                            </views:MaterialPicker.Items>
+                        </views:MaterialPicker>
+                        <Label Text="" x:Name="SubjectValidationMessage" Grid.Row="3" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+
+                        <Grid  Grid.Row="6" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height=".1*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Message Text" Grid.Row="0"  TextColor="{StaticResource SmallTextColor}" FontSize="{StaticResource BodyLargeFontSize}"  />
+                            <ffControls:FFEditor PlaceholderColor="{StaticResource BlueyGrey}" Placeholder="Your message" Grid.Row="1" Text="{Binding Message}" />
+                            <Label BackgroundColor="{StaticResource SmallTextColor}" Grid.Row="2">
+                                
+                            </Label>
+                        </Grid>
+                        <Label Text="" x:Name="MessageValidationMessage" Grid.Row="7" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+                    </Grid>
+
+                    <Button Grid.Row="3" Text="Send Message"
+                            BackgroundColor="{StaticResource PrimaryButton}"
+                            x:Name="btnSendMessage"
+                            TextColor="White"
+                            Margin="20,5,20,5"
+                            FontSize="{StaticResource BodyFontSize}"
+                            CornerRadius="10"
+                            HeightRequest="40"
+                            Command="{Binding CreateAccountCommand}">
+                    </Button>
+
+            
+        </Grid>
+
+                <StackLayout>
+                    <Frame CornerRadius="10"  BackgroundColor="White" Margin="20,0,20,20" Padding="0" HeightRequest="200">
+                        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="1" Text="Linksoft Solutions Pty Ltd" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource FontSize}" FontFamily="{StaticResource SemiBoldFont}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="2" Text="ABN: 25 070 303 374" TextColor="{StaticResource BlueGrey}" FontSize="{StaticResource MediumFontSize}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <Grid Grid.Row="3"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height=".2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout BackgroundColor="{StaticResource silver}" Grid.Row="1"></StackLayout>
+                            </Grid>
+                            <Label Grid.Row="5" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource MediumFontSize}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="1300 661 960  " />
+                                        <Span Text="9am - 5pm, Mon - Fri"  TextColor="{StaticResource BlueGrey}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Row="6" Text="Level 26, 44 Market Street, Sydney, NSW" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource FontSize}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="4" Text="service@flatmatefinders.com.au" TextColor="{StaticResource PrimaryButton}" FontSize="{StaticResource FontSize}" FontFamily="{StaticResource SemiBoldFont}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

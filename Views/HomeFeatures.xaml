@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlatmateFinders.Services"
+             xmlns:local1="clr-namespace:FlatmateFinders.ViewModels"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.HomeFeatures">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToImageConverter x:Key="BoolCheckboxConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local1:HomeFeaturesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource clean}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height="5.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Text="Home Features"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource LargeFontSize}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+
+            <Image Grid.Row="0" Source="blue.png"
+                               Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+                <Label Text="Select features, excluding bedrooms." Grid.Row="1"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource MediumFontSize}"
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Start"
+                               />
+            <ScrollView Grid.Row="2" >
+            <ListView  Margin="20,0,20,0"
+                       x:Name="HomeFeaturesListview"
+                        ItemsSource="{Binding Features}"  
+                        ItemTapped="HomeFeaturesListview_ItemTapped"
+              HasUnevenRows="True"  SeparatorColor="{StaticResource cloudyBlue}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="0,15,0,15" BackgroundColor="Transparent">
+                                    <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Grid.GestureRecognizers>-->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                <Label  Text="{Binding Name}" 
+                                        BackgroundColor="Transparent"
+                                        Grid.Column="0"
+                                    FontSize="{StaticResource FontSize}"  
+                                    HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                    TextColor="{StaticResource PrimaryTextColor}" 
+                                     />
+
+                                    <!--<Image Grid.Row="0" Source="{Binding IsChecked, Converter={StaticResource BoolCheckboxConverter}}" 
+                                 Grid.Column="1"
+                                 HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="30" Margin="0,0,10,0"/>-->
+
+
+                                    <ffSvg:SvgCachedImage Grid.Row="0" Source="{Binding IsChecked, Converter={StaticResource BoolCheckboxConverter}, ConverterParameter=checkbox}" 
+                                 Grid.Column="1"
+                                 HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="30" Margin="0,0,10,0"/>
+                                </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </ScrollView>
+            <StackLayout Grid.Row="3"  HorizontalOptions="FillAndExpand" >
+                <Button  Text="Done"
+                    Margin="20,15,20,15"
+                    BackgroundColor="{StaticResource PrimaryButton}"
+                    x:Name="btnDone"
+                    TextColor="White"
+                    WidthRequest="120"
+                    FontSize="{StaticResource FontSize}"
+                    CornerRadius="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="FillAndExpand"
+                    Clicked="BtnDone_Clicked"
+                   />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

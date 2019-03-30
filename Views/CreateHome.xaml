@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FlatmateFinders.Views.CreateHome">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Padding="25,50,25,75" BackgroundColor="{StaticResource BackgroundCoor}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <Frame CornerRadius="10"  BackgroundColor="{StaticResource LightBackgroundColor}">
+                    <ContentView BackgroundColor="{StaticResource LightBackgroundColor}" Padding="0" >
+                        <Grid Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+                                    <Label Text="Thanks John" TextColor="{StaticResource DarkTextColor}" FontSize="{StaticResource BodyFontSize}"  VerticalOptions="Center" FontAttributes="Bold" HorizontalOptions="Center" />
+                                    <Label Text="Let's Create home" TextColor="{StaticResource LightTextColor2}" FontSize="{StaticResource LargeFontSize}"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Home Bedroom Info." TextColor="{StaticResource DarkTextColor}" FontSize="{StaticResource BodyFontSize}" FontAttributes="Bold" Margin="10" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Text="Occupants Info." TextColor="{StaticResource DarkTextColor}" FontSize="{StaticResource BodyFontSize}" FontAttributes="Bold" Margin="10" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Text="Upload Photos" TextColor="{StaticResource DarkTextColor}" FontSize="{StaticResource BodyFontSize}" FontAttributes="Bold" Margin="10" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Text="Contact Person" TextColor="{StaticResource DarkTextColor}" FontSize="{StaticResource BodyFontSize}" FontAttributes="Bold" Margin="10" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </StackLayout>
+                                <Button Text="Get Started"
+                                    BackgroundColor="Gray"
+                                    x:Name="btnAccount"
+                                    TextColor="White"
+                                    Grid.Row="4"
+                                    Margin="10"
+                                    FontSize="Default"
+                                    CornerRadius="25"
+                                    HeightRequest="50">
+                            </Button>
+                        </Grid>
+                    </ContentView>
+                </Frame>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

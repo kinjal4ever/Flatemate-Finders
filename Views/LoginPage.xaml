@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+             xmlns:behaviors="clr-namespace:FlatmateFinders.Services"
+             x:Class="FlatmateFinders.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height=".35*"/>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".2*"/>
+            </Grid.RowDefinitions>
+            <!--<Image Grid.Row="0" Source="backArrow.png"
+                       Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20"></Image>-->
+            <Button Grid.Row="0" Image="backArrow.png"
+                    HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"
+                    HeightRequest="20" WidthRequest="20"
+                    BackgroundColor="Transparent"
+                            Clicked="Back_Tapped"
+                            />
+            <Image Grid.Row="0" Source="iconFf.png"
+                       Margin="10" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+            <Button Grid.Row="0" Text="FAQs"
+                    Style="{StaticResource LinkButton}"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       Clicked="Button_Clicked"
+                            />
+
+            <Label Grid.Row="1" Text="Welcome back"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       />
+            <Button Grid.Row="2" Text="Login with Facebook"
+                    BackgroundColor="{StaticResource FBButton}"
+                    x:Name="btnLookinForHome"
+                    TextColor="White"
+                    Margin="20,0,20,0"
+                    FontSize="Default"
+                    CornerRadius="10"
+                    HeightRequest="40"
+                        Clicked="BtnLoginFB_Clicked"
+                        >
+            </Button>
+            <Image Grid.Row="2" Source="iconFb.png" HeightRequest="20" Margin="60,0,0,0"
+                        HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+
+            <Grid  Grid.Row="3" Margin="10">
+                <Grid.RowDefinitions>   
+                    <RowDefinition Height=".3*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".25*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".25*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="or login with"
+                       TextColor="{StaticResource BlueGrey}"
+                       Margin="0,2,0,0"
+                       FontSize="{StaticResource SmallFontSize}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       Grid.Row="0" >
+                </Label>
+                <views:MaterialEntry Placeholder="Email"  Margin="20,0,20,0" Text="{Binding Email}" Keyboard="Email" Grid.Row="1" AccentColor="{StaticResource FocusedColor}"  DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}"  >
+                    <views:MaterialEntry.Behaviors>
+                        <behaviors:EmailValidationBehavior MaxLength="100" MinLength="1" />
+                    </views:MaterialEntry.Behaviors>
+                </views:MaterialEntry>
+                <Label Text="" x:Name="EmailValidationMessage"   Margin="20,0,20,0"  Grid.Row="2" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+                <views:MaterialEntry Placeholder="Password"  Margin="20,0,20,0" Text="{Binding Password}" IsPassword="True" Grid.Row="3" AccentColor="{StaticResource FocusedColor}"  DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}"  >
+                    <views:MaterialEntry.Behaviors>
+                        <behaviors:PasswordValidationBehavior MaxLength="100" MinLength="1" />
+                    </views:MaterialEntry.Behaviors>
+                </views:MaterialEntry>
+                <!--<Label Text="Forgot" Grid.Row="3" HorizontalTextAlignment="End" HorizontalOptions="End" VerticalTextAlignment="Center" Margin="0,0,20,10" FontSize="{StaticResource BodyLargeFontSize}" FontFamily="{StaticResource NormalFont}" TextColor="{StaticResource BlueGrey}"/>-->
+                <Label Text="" x:Name="PasswordValidationMessage"   Margin="20,0,20,0" Grid.Row="4" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+            </Grid>
+            <Button Grid.Row="4" Text="Login"
+                    BackgroundColor="{StaticResource PrimaryButton}"
+                    x:Name="btnLogin"
+                    TextColor="White"
+                    Margin="20,0,20,0"
+                    FontSize="{StaticResource BodyFontSize}"
+                    CornerRadius="10"
+                    HeightRequest="40"
+                    Command="{Binding LoginCommand}"
+                        >
+            </Button>
+            <Label Text="Forgot Password ? "
+                       TextColor="{StaticResource SmallTextColor}"
+                       Margin="0,10,0,0"
+                       FontFamily="{StaticResource SemiBoldFont}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="{StaticResource MediumFontSize}" Grid.Row="5">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="BtnForgot_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <StackLayout Grid.Row="6" Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+                <Label Text="Not have an account yet ? "
+                       TextColor="{StaticResource BlueGrey}"
+                       FontSize="{StaticResource MediumFontSize}"/>
+                <Label Text="Register"  
+                        Style="{StaticResource LinkButton}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer  Tapped="BtnRegister_Clicked" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{64A81E2E-81BC-4041-B09D-AFD2C11BB661}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>FlatmateFinders</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\BedroomFeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OfferingHomeCreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LookingForHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SelectLocationLookingForPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedPhotosLookingForHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\FFCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\FFNavigation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\TransitionNavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\TransitionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\UnderLineEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ErrorList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Toast.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FFEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\HorizontalListView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\FlatmateFindersDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FacebookProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Photo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FeaturesModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Faq.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ListButtonModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Slide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\tblUsers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FFTabbePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BoolToImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IFileHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\ILoginService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IRegistrationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\InverseBoolConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LoginService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PasswordValidationBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\FacebookServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EmailValidationBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LengthValidationBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RegistrationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BedRoomViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FacebookViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BedroomFeatureViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PhotosViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomeFeatureViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FAQViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SelectLocationLookingForViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FlatmatePreferencesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\YourDescriptionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OccupantsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SelectLocationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SignupViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AddBedRoom.xaml.cs">
+      <DependentUpon>AddBedRoom.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BedroomFeatures.xaml.cs">
+      <DependentUpon>BedroomFeatures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ContactUsPage.xaml.cs">
+      <DependentUpon>ContactUsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateAccount.xaml.cs">
+      <DependentUpon>CreateAccount.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CreateHome.xaml.cs">
+      <DependentUpon>CreateHome.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FacebookProfileCsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FacebookProfilePage.xaml.cs">
+      <DependentUpon>FacebookProfilePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FAQsPage.xaml.cs">
+      <DependentUpon>FAQsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FlatmatePreferences.xaml.cs">
+      <DependentUpon>FlatmatePreferences.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomeFeatures.xaml.cs">
+      <DependentUpon>HomeFeatures.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomeInfo.xaml.cs">
+      <DependentUpon>HomeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LookingForHomePage.xaml.cs">
+      <DependentUpon>LookingForHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OfferingHomePage.xaml.cs">
+      <DependentUpon>OfferingHomePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OfferingHomeCreateAccount.xaml.cs">
+      <DependentUpon>OfferingHomeCreateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\OfferingHomePricing.xaml.cs">
+      <DependentUpon>OfferingHomePricing.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PricingPage.xaml.cs">
+      <DependentUpon>PricingPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RegisterFB.xaml.cs">
+      <DependentUpon>RegisterFB.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ResetPage.xaml.cs">
+      <DependentUpon>ResetPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SelectLocation.xaml.cs">
+      <DependentUpon>SelectLocation.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SelectLocationLookingForPage.xaml.cs">
+      <DependentUpon>SelectLocationLookingForPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SelectTypePage.xaml.cs">
+      <DependentUpon>SelectTypePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedBedRoom.xaml.cs">
+      <DependentUpon>TabbedBedRoom.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedContact.xaml.cs">
+      <DependentUpon>TabbedContact.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedFlatmatePreferences.xaml.cs">
+      <DependentUpon>TabbedFlatmatePreferences.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedHome.xaml.cs">
+      <DependentUpon>TabbedHome.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedHomePreferences.xaml.cs">
+      <DependentUpon>TabbedHomePreferences.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedOccupants.xaml.cs">
+      <DependentUpon>TabbedOccupants.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedOfferingFlatmatePreference.xaml.cs">
+      <DependentUpon>TabbedOfferingFlatmatePreference.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedPhotos.xaml.cs">
+      <DependentUpon>TabbedPhotos.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedPhotosLookingForHome.xaml.cs">
+      <DependentUpon>TabbedPhotosLookingForHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TabbedYourDescription.xaml.cs">
+      <DependentUpon>TabbedYourDescription.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\RegisterFB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CreateHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FacebookProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HomeInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SelectTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OfferingHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PricingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ResetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\OfferingHomePricing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FAQsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ContactUsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SelectLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HomeFeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedBedRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedOccupants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedPhotos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedContact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddBedRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\FlatmatePreferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedYourDescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedHomePreferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedFlatmatePreferences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TabbedOfferingFlatmatePreference.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <!--#if (CreateBackendProject)
+    <Compile Include="$(MSBuildThisFileDirectory)Services\AzureDataStore.cs" />
+  #endif-->
+</Project>

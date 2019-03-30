@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+             xmlns:behaviors="clr-namespace:FlatmateFinders.Services"
+             x:Class="FlatmateFinders.Views.ResetPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height=".8*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="blue.png"
+                       Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <Image Grid.Row="0" Source="iconFf.png"
+                       Margin="10" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+    
+            <Label Grid.Row="1" Text="Reset Password"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="End"
+                       />
+            
+            
+            <StackLayout Grid.Row="2" VerticalOptions="Center">
+            <Label Text="Enter your login email address. We'll send you a"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource MediumFontSize}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       />
+            <Label Text="link to reset your password."
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="{StaticResource MediumFontSize}" />
+            </StackLayout>
+            <StackLayout Grid.Row="4" HorizontalOptions="Center">
+                <views:MaterialEntry Placeholder="Email"  Margin="20,0,20,0" Text="{Binding Email}" Keyboard="Email" Grid.Row="1" AccentColor="{StaticResource FocusedColor}"  DefaultColor="{StaticResource SmallTextColor}" InvalidColor="{StaticResource UnderLineSelectColor}"  >
+                    <views:MaterialEntry.Behaviors>
+                        <behaviors:EmailValidationBehavior MaxLength="100" MinLength="1" />
+                    </views:MaterialEntry.Behaviors>
+                </views:MaterialEntry>
+                <Label Text="" x:Name="EmailValidationMessage"   Margin="20,0,20,0"  Grid.Row="2" FontSize="Small" TextColor="{StaticResource UnderLineSelectColor}" />
+            </StackLayout>
+            <Button Grid.Row="5" Text="Submit"
+                    BackgroundColor="{StaticResource PrimaryButton}"
+                    x:Name="btnLogin"
+                    TextColor="White"
+                    Margin="20,0,20,0"
+                    FontSize="{StaticResource BodyFontSize}"
+                    CornerRadius="10"
+                    HeightRequest="40"
+                    Command="{Binding LoginCommand}"
+                        >
+            </Button>
+          
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

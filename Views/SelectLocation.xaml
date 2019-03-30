@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlatmateFinders.ViewModels"
+             xmlns:views="clr-namespace:SuaveControls.MaterialForms;assembly=SuaveControls.MaterialForms"
+             x:Class="FlatmateFinders.Views.SelectLocation"
+             NavigationPage.HasNavigationBar="False">
+   
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.3*"/>
+                <RowDefinition Height="7.7*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" BackgroundColor="{StaticResource clean}" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.3*"/>
+                        <RowDefinition Height=".3*"/>
+                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="1" Source="blue.png" 
+                       Margin="20,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="60" WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+
+                    <Label Grid.Row="1"
+                       HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="{StaticResource MediumFontSize}" Text="Street name and number (confidential)"
+                       TextColor="{StaticResource BlueGrey}"></Label>
+                    
+                    <Frame BorderColor="{StaticResource silver}" CornerRadius="10" Margin="20,0,20,0" Padding="0"  Grid.Row="2" HasShadow="False">
+                        <StackLayout Orientation="Horizontal">
+                           
+                            <Image Source="search.png" 
+                                    Margin="10,0,0,0" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="30">
+                            </Image>
+                            <views:BorderlessEntry Placeholder="155 Clarence st, Sydney NSW 2000" HorizontalOptions="FillAndExpand" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource BodyFontSize}" 
+                                   TextChanged="SearchBar_SearchButtonPressed"
+                                                   VerticalOptions="Center"
+                                   x:Name="LocationSearchBar"
+                                   ></views:BorderlessEntry>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout >
+
+            <!--ItemTapped="ListViewItem_Tabbed"-->
+
+            <ListView  Grid.Row="1" Margin="20,0,0,0"
+                       x:Name="LocationListview"
+                       BackgroundColor="Transparent"
+              HasUnevenRows="True"  SeparatorColor="{StaticResource cloudyBlue}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="0,10,0,10" BackgroundColor="Transparent">
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                <Image Grid.Row="0" Source="iconLocation.png" 
+                                 HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="40"/>
+                                
+                                <Label  Text="{Binding .}" Margin="10,15,0,15"
+                                    FontSize="{StaticResource FontSize}"  
+                                    Grid.Row="1"
+                                    TextColor="{StaticResource PrimaryTextColor}" 
+                                    FontFamily="{StaticResource BoldFont}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

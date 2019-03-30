@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlatmateFinders.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!-- Colors -->
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="PrimaryDark">#1976D2</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="PrimaryButton">#05ACCC</Color>
+            <Color x:Key="SecondaryButton">#F89B1D</Color>
+            <Color x:Key="FBButton">#245384</Color>
+            <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
+            <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
+            <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="LightTextColor2">#91abb7</Color>
+            <Color x:Key="DarkTextColor">#505e65</Color>
+            <Color x:Key="BorderColor">#ddd</Color>
+            <Color x:Key="PrimaryFormBackground">#eff5f8</Color>
+            <Color x:Key="PrimaryTextColor">#243138</Color>
+            <Color x:Key="UnderLineColor">#D2D6D9</Color>
+            <Color x:Key="UnderLineSelectColor">#ff1c1c</Color>
+            <Color x:Key="SmallTextColor">#5F7D89</Color>
+            <Color x:Key="FocusedColor">#37474F</Color>
+            <Color x:Key="BlueyGrey">#8da1ac</Color>
+            <Color x:Key="BlueGrey">#5f7d89</Color>
+            <Color x:Key="tifenyBlue">#58e2e9</Color>
+            <Color x:Key="pricingBlue">#10b1c9</Color>
+            <Color x:Key="squash">#f89b1d</Color>
+            <Color x:Key="turquoiseBlueTwo">#0899b5</Color>
+            <Color x:Key="silver">#c0c9cf</Color>
+            <Color x:Key="dustyOrange">#f3821e</Color>
+            <Color x:Key="tealish">#26bdc5</Color>
+            <Color x:Key="clean">#ffffff</Color>
+            <Color x:Key="cloudyBlue">#c9d3da</Color>
+            
+            
+            <!-- Colors -->
+            <!-- FontSize -->
+            <x:Double x:Key="ExtraLargeFontSize">28</x:Double>
+            <x:Double x:Key="LargeFontSize">23</x:Double>
+            <x:Double x:Key="BodyLargeFontSize">18</x:Double>
+            <x:Double x:Key="BodyFontSize">16</x:Double>
+            <x:Double x:Key="FontSize">15</x:Double>
+            <x:Double x:Key="MediumFontSize">14</x:Double>
+            <x:Double x:Key="SmallFontSize">12</x:Double>
+            <x:Double x:Key="ExtraSmallFontSize">10</x:Double>
+            <!-- FontSize -->
+            <!-- TextColor Styles -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <!-- TextColor Styles -->
+            
+            <!-- Platform wise Font -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="SemiBoldFont">
+                <On Platform="Android" Value="fonts/ProximaNova-Semibold.ttf#ProximaNova" />
+                <On Platform="iOS" Value="ProximaNova-Semibold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="fonts/ProximaNova-Regular.ttf#ProximaNova" />
+                <On Platform="iOS" Value="ProximaNova-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="fonts/ProximaNova-Bold.ttf#ProximaNova" />
+                <On Platform="iOS" Value="ProximaNova-Bold" />
+            </OnPlatform>
+            <!-- Platform wise Font -->
+
+
+            <!-- FontFamily-->
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+                <Setter Property="TextColor" Value="{StaticResource BlueyGrey}"/>
+            </Style>
+            <Style TargetType="Button" x:Key="Button">
+                <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="LandingLabel">
+                <Setter Property="Font" Value="Bold"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+                <Setter Property="FontSize" Value="{StaticResource LargeFontSize}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="LinkButton">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryButton}"/>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+                <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Font" Value="Bold" />
+            </Style>
+
+            <Style TargetType="Button" x:Key="LinkButtonBold">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryButton}"/>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Font" Value="Bold" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SmallWhiteLabel">
+                <Setter Property="Font" Value="Bold"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraSmallFontSize}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <!-- Home Page Button Common Style-->
+            <Style TargetType="Button" x:Key="HomePageButton">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="0,0,5,0"/>
+                <Setter Property="FontSize" Value="{StaticResource BodyFontSize}"/>
+                <Setter Property="BorderColor" Value="{StaticResource tealish}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource clean}" />
+                <Setter Property="TextColor" Value="{StaticResource BlueGrey}"/>
+            </Style>
+            <Style TargetType="Button" x:Key="HomePageButtonBlue">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="0,0,5,0"/>
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="FontSize" Value="{StaticResource BodyFontSize}"/>
+                <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryButton}" />
+                <Setter Property="TextColor" Value="{StaticResource clean}"/>
+            </Style>
+
+            
+            <Style TargetType="Frame" x:Key="HomePageFrame">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="0,0,5,0"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="BorderColor" Value="{StaticResource tealish}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource clean}" />
+            </Style>
+            <Style TargetType="Frame" x:Key="HomePageFrameBlue">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="0,0,5,0"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryButton}" />
+            </Style>
+            
+
+
+            <Style TargetType="Frame" x:Key="SelectedButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource tealish}" />
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BorderColor" Value="{StaticResource tealish}" />
+            </Style>
+            <Style TargetType="Frame" x:Key="UnSelectedButton">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource clean}" />
+                <Setter Property="BorderColor" Value="{StaticResource tealish}" />
+            </Style>
+
+            <Style x:Key="PageStyle" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryFormBackground}" />
+            </Style>
+            <!-- FontFamily-->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

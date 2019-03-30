@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffControls="clr-namespace:FlatmateFinders.Controls"
+             xmlns:Helpers="clr-namespace:FlatmateFinders.Services"
+             x:Class="FlatmateFinders.Views.FlatmatePreferences">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:BoolToImageConverter x:Key="BoolToColorConverter" />
+            <Helpers:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid  BackgroundColor="{StaticResource PrimaryFormBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Text="Flatmate Preferences"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource LargeFontSize}"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+
+            <Image Grid.Row="0" Source="backArrow2.png"
+                               Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="Back_Tapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label Text="Select all the options that you're willing to consider."
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               FontSize="{StaticResource MediumFontSize}"
+                               Grid.Row="1"
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+
+            <Grid Grid.Row="2" Margin="20,20,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Your gender &amp; sexuality " />
+                            <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <ffControls:RepeaterView x:Name="GenderList"
+                                                      ItemsSource="{Binding GenderList}" 
+                                                      NoOfColumns="4" >
+                                <ffControls:RepeaterView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Button StyleId="GenderList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </ffControls:RepeaterView.ItemTemplate>
+                            </ffControls:RepeaterView>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+                <Label Grid.Row="3" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Your age group " />
+                            <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Grid.Row="4">
+                    <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <ffControls:RepeaterView x:Name="AgeList"
+                                                      ItemsSource="{Binding AgeList}" 
+                                                      NoOfColumns="4" >
+                                <ffControls:RepeaterView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Button StyleId="AgeList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </ffControls:RepeaterView.ItemTemplate>
+                            </ffControls:RepeaterView>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+
+                <Label Grid.Row="6" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Your smoking at home " />
+                            <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" Grid.Row="7">
+                    <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <ffControls:RepeaterView x:Name="SmokingList"
+                                                      ItemsSource="{Binding SmokingList}" 
+                                                      NoOfColumns="4" >
+                                <ffControls:RepeaterView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Button StyleId="SmokingList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </ffControls:RepeaterView.ItemTemplate>
+                            </ffControls:RepeaterView>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+                <Label Grid.Row="9" TextColor="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource SemiBoldFont}" FontSize="{StaticResource FontSize}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Your pets " />
+                            <Span Text="*"  TextColor="{StaticResource dustyOrange}" FontSize="{StaticResource BodyFontSize}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" Grid.Row="10">
+                    <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Never">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <ffControls:RepeaterView x:Name="PetList"
+                                                      ItemsSource="{Binding PetList}" 
+                                                      NoOfColumns="4" >
+                                <ffControls:RepeaterView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Button StyleId="PetList" Text="{Binding Text}" Style="{Binding Selected, Converter={StaticResource BoolToColorConverter}, ConverterParameter=SingleButtonSelection}" Clicked="ListButton_Clicked"  ></Button>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </ffControls:RepeaterView.ItemTemplate>
+                            </ffControls:RepeaterView>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+            </Grid>
+
+            <Button Grid.Row="3" Text="Show matches"
+                            BackgroundColor="{StaticResource PrimaryButton}"
+                            x:Name="btnSendMessage"
+                            TextColor="White"
+                            Margin="20"
+                            FontSize="{StaticResource BodyFontSize}"
+                            CornerRadius="10"
+                            HeightRequest="60"
+                            Command="{Binding CreateAccountCommand}">
+            </Button>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

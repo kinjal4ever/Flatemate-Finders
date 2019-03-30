@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlatmateFinders.Views.CreateAccount"
+             NavigationPage.HasNavigationBar="False" Style="{StaticResource PageStyle}"
+             >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".25*"/>
+                <RowDefinition Height=".35*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".45*"/>
+                <RowDefinition Height=".3*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="0" Image="backArrow.png"
+                    HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"
+                    HeightRequest="20" WidthRequest="20"
+                    BackgroundColor="Transparent"
+                            Clicked="Back_Tapped"
+                            />
+
+            <Image Grid.Row="0" Source="iconFf.png"
+                       Margin="10" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+
+            <Button Grid.Row="0" Text="Pricing"
+                       Style="{StaticResource LinkButton}"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       Clicked="Button_Clicked"/>
+            <Grid  Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Sign up to look for a home"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"
+                       />
+                <Button Grid.Row="1" Text="Signup with facebook"
+                    BackgroundColor="{StaticResource FBButton}"
+                    x:Name="btnLookinForHome"
+                    TextColor="White"
+                    Margin="20,15,20,15"
+                    FontSize="{StaticResource BodyFontSize}"
+                    CornerRadius="10"
+                    HeightRequest="40"
+                        Clicked="BtnSignupFacebook_Clicked"
+                        >
+                </Button>
+                <Image Grid.Row="1" Source="iconFb.png" HeightRequest="20" Margin="40,0,0,0"
+                        HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+
+
+                <Button Grid.Row="2" Text="Signup with Email"
+                    BackgroundColor="{StaticResource PrimaryButton}"
+                    x:Name="btnSignupEmail"
+                    TextColor="White"
+                    FontSize="{StaticResource BodyFontSize}"
+                    Margin="20,15,20,15"
+                    CornerRadius="10"
+                    HeightRequest="40"
+                        Clicked="BtnSignupEmail_Clicked">
+
+
+                </Button>
+                <Image Grid.Row="2" Source="iconEmail.png" HeightRequest="20" Margin="40,0,0,0"
+                        HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" ></Image>
+
+            </Grid>
+
+
+            <Grid  Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="By clicking on register you are agreed to"
+                       HorizontalTextAlignment="Center"
+                       Grid.Row="0"
+                       VerticalTextAlignment="Start"
+                       LineBreakMode="WordWrap"
+                       TextColor="{StaticResource SmallTextColor}"
+                       FontSize="Small"/>
+                <Label 
+                       Grid.Row="1"
+                       x:Name="AcceptConditions"
+                      HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"
+                       LineBreakMode="WordWrap"
+                       TextColor="{StaticResource BlueGrey}"
+                       FontSize="{StaticResource SmallFontSize}"
+                       >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="FlatmateFinders " />
+                            <Span Text="Terms of use " FontAttributes="Bold" TextColor="{StaticResource PrimaryTextColor}"  />
+                            <Span Text="and " />
+                            <Span Text="Privacy Policy" FontAttributes="Bold" TextColor="{StaticResource PrimaryTextColor}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

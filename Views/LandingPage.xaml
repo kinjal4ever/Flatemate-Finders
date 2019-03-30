@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:local="clr-namespace:FlatmateFinders.Droid.Services"
+             x:Class="FlatmateFinders.Views.LandingPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <Grid BackgroundColor="{StaticResource PrimaryFormBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".7*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".8*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="iconFf.png" HeightRequest="30" WidthRequest="45"
+                       HorizontalOptions="Center" VerticalOptions="End" Aspect="AspectFit"></Image>
+
+                <ContentView Grid.Row="1">
+
+                    <controls:CarouselViewControl ItemsSource="{Binding MyItemsSource}"
+                                                    x:Name="carousel"
+                                                    CurrentPageIndicatorTintColor="{StaticResource MediumGrayTextColor}"
+                                                    IndicatorsTintColor="{StaticResource DarkBackgroundColor}"
+                                                    PositionSelectedCommand="{Binding MyCommand}"
+                                                    VerticalOptions="Center"
+                                                    IndicatorsShape="Circle"
+                                                    Orientation="Horizontal"
+                                                    ShowIndicators="True"
+                                                    ShowArrows="False"
+                                                  >
+                        <controls:CarouselViewControl.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">500</On>
+                            </OnPlatform>
+                        </controls:CarouselViewControl.HeightRequest>
+                        <controls:CarouselViewControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <StackLayout Grid.Row="0" 
+                                            IsVisible="{Binding !IsImageInsideText}" VerticalOptions="Center">
+                                        <Grid VerticalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height=".3*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height=".4*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Title}" Grid.Row="0"
+                                                        Style="{StaticResource LandingLabel}"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"/>
+                                            <Image Grid.Row="1"  IsVisible="{Binding IsImageWithText}" 
+                                                        Source="{Binding Image}" HeightRequest="220"
+                                                        Margin="20,0,20,0" Aspect="AspectFit"></Image>
+
+                                            <StackLayout Grid.Row="2" Margin="0,0,0,0" VerticalOptions="Center">
+                                                <Label Text="{Binding Description1}"
+                                                       IsVisible="{Binding IsImageWithText}"
+                                                        FontSize="{StaticResource MediumFontSize}"
+                                                        TextColor="{StaticResource PrimaryTextColor}"
+                                                       FontAttributes="Bold"
+                                                        LineBreakMode="WordWrap"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"/>
+                                                <Label Text="{Binding Description2}"
+                                                        FontSize="{StaticResource MediumFontSize}"
+                                                        TextColor="{StaticResource PrimaryTextColor}"
+                                                       FontAttributes="Bold"
+                                                        LineBreakMode="WordWrap"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="0" VerticalOptions="Center"
+                                            IsVisible="{Binding IsImageInsideText}">
+                                        <Grid VerticalOptions="Center" Margin="0,0,0,30">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Grid.Row="0" 
+                                                Source="{Binding Image}"
+                                                   BackgroundColor="Transparent"
+                                                Aspect="AspectFit" />
+                                            <Grid Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="{Binding SubTitle}"  
+                                                Grid.Row="0" 
+                                                Style="{StaticResource LandingLabel}"
+                                                LineBreakMode="WordWrap" 
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                               />
+                                                <Label Text="{Binding Description1}" 
+                                                Grid.Row="1" 
+                                                Style="{StaticResource LandingLabel}"
+                                                LineBreakMode="WordWrap" 
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                               />
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </DataTemplate>
+
+                        </controls:CarouselViewControl.ItemTemplate>
+                    </controls:CarouselViewControl>
+                </ContentView>
+                <Button Text="Create an account"
+                    BackgroundColor="{StaticResource PrimaryButton}"
+                    x:Name="btnAccount"
+                    TextColor="White"
+                    Grid.Row="2"
+                    Margin="20,15,20,0"
+                    FontSize="{StaticResource BodyFontSize}"
+                    CornerRadius="10"
+                    Clicked="BtnAccount_Clicked"
+                    HeightRequest="50">
+                </Button>
+                <StackLayout Grid.Row="3" Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+                    <Label Text="Already have an account ?"
+                       TextColor="{StaticResource BlueGrey}"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                       FontSize="{StaticResource MediumFontSize}"/>
+                    <Label Text="Login"  
+                        Style="{StaticResource LinkButton}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="BtnLogin_Clicked" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<controls:FFTabbedPage
+    xmlns:controls="clr-namespace:FlatmateFinders.Controls" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:FlatmateFinders.Views"
+            BackgroundColor="{StaticResource PrimaryFormBackground}"
+            SelectedColor="{StaticResource squash}"
+            BarBackgroundColor="White"
+            NavigationPage.HasNavigationBar="False"
+            x:Class="FlatmateFinders.Views.LookingForHomePage">
+   
+</controls:FFTabbedPage>

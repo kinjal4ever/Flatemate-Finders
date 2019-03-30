@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlatmateFinders.Views.OfferingHomePricing"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource PrimaryButton}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".55*"/>
+                <RowDefinition Height=".45*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" BackgroundColor="{StaticResource PrimaryButton}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height=".5*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Source="close2.png"
+                       Margin="20" HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label Grid.Row="0"
+                       HorizontalOptions="Center" VerticalOptions="Center" Text="Pricing" 
+                       FontSize="{StaticResource LargeFontSize}"
+                       TextColor="White"></Label>
+
+
+                    <Grid Grid.Row="1" Margin="20,0,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width=".15*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width=".15*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Column="0" Padding="0" BackgroundColor="{StaticResource PrimaryButton}"  Margin="0" HasShadow="False">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="4*"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" >
+
+                                </StackLayout>
+                                <Frame Grid.Row="1"  Padding="0" BackgroundColor="{StaticResource turquoiseBlueTwo}" CornerRadius="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"/>
+                                            <RowDefinition Height=".1*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Frame Grid.Row="0"  Padding="0" BackgroundColor="{StaticResource PrimaryFormBackground}" CornerRadius="10">
+                                            <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="2*"/>
+                                                    <RowDefinition Height="4*"/>
+                                                    <RowDefinition Height=".5*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="14 Days" Style="{StaticResource LinkButtonBold}" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                                <Grid Grid.Row="2"  HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="3*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="$" FontSize="{StaticResource BodyLargeFontSize}" Grid.Column="0" VerticalTextAlignment="Start" HorizontalTextAlignment="End"  />
+                                                    <Label Text="19" FontSize="{StaticResource ExtraLargeFontSize}" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Start" />
+                                                </Grid>
+                                            </Grid>
+                                        </Frame>
+                                        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource turquoiseBlueTwo}">
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Column="2" Padding="0" BackgroundColor="{StaticResource squash}" CornerRadius="10" HasShadow="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="4*"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" BackgroundColor="{StaticResource squash}" HorizontalOptions="Center" VerticalOptions="End" >
+                                    <Label Text="MOST POPULAR" Style="{StaticResource SmallWhiteLabel}" VerticalTextAlignment="End" HorizontalTextAlignment="Center"  />
+                                </StackLayout>
+                                <Frame Grid.Row="1"  Padding="0" BackgroundColor="{StaticResource turquoiseBlueTwo}" CornerRadius="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"/>
+                                            <RowDefinition Height=".1*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Frame Grid.Row="0"  Padding="0" BackgroundColor="{StaticResource PrimaryFormBackground}" CornerRadius="10">
+                                            <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="2*"/>
+                                                    <RowDefinition Height="4*"/>
+                                                    <RowDefinition Height=".5*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text=" 1 Month" Style="{StaticResource LinkButtonBold}" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+                                                <Grid Grid.Row="2"  HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="3*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="$" FontSize="{StaticResource BodyLargeFontSize}" Grid.Column="0" VerticalTextAlignment="Start" HorizontalTextAlignment="End"  />
+                                                    <Label Text="25" FontSize="{StaticResource ExtraLargeFontSize}" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Start" />
+                                                </Grid>
+                                            </Grid>
+                                        </Frame>
+                                        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource turquoiseBlueTwo}">
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Column="4" Padding="0" BackgroundColor="{StaticResource PrimaryButton}"  Margin="0" HasShadow="False">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="4*"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" >
+
+                                </StackLayout>
+                                <Frame Grid.Row="1"  Padding="0" BackgroundColor="{StaticResource turquoiseBlueTwo}" CornerRadius="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="10*"/>
+                                            <RowDefinition Height=".1*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Frame Grid.Row="0"  Padding="0" BackgroundColor="{StaticResource PrimaryFormBackground}" CornerRadius="10">
+                                            <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="2*"/>
+                                                    <RowDefinition Height="4*"/>
+                                                    <RowDefinition Height=".5*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="2 Months" Style="{StaticResource LinkButtonBold}" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+                                                <Grid Grid.Row="2"  HorizontalOptions="Center" VerticalOptions="Center">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="3*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="$" FontSize="{StaticResource BodyLargeFontSize}" Grid.Column="0" VerticalTextAlignment="Start" HorizontalTextAlignment="End"  />
+                                                    <Label Text="30" FontSize="{StaticResource ExtraLargeFontSize}" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Start" />
+                                                </Grid>
+                                            </Grid>
+                                        </Frame>
+                                        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource turquoiseBlueTwo}">
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+
+                    <StackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" >
+
+                        <Label 
+                            FontSize="{StaticResource MediumFontSize}"
+                                                TextColor="{StaticResource clean}"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                               >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="NOTE : " FontAttributes="Bold" FontFamily="{StaticResource BoldFont}"  />
+                                    <Span Text="The service period is valid for 6 months. "   />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="You can start and stop your profile within that time"  
+                               FontSize="{StaticResource MediumFontSize}"
+                               TextColor="White" 
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"/>
+
+                        <Label Text="to use your available service."
+                       FontSize="{StaticResource MediumFontSize}"
+                       TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout >
+
+
+            <Frame BackgroundColor="{StaticResource PrimaryFormBackground}"  CornerRadius="10" Grid.Row="1">
+                <Grid Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height=".3*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="1" Source="guaranteeBadge.png"
+                        HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" Margin="7" ></Image>
+
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row="2">
+                        <Label Text="If you're not happy with this service, cancel" FontSize="{StaticResource MediumFontSize}" 
+                           TextColor="{StaticResource PrimaryTextColor}"
+                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                               />
+                        <Label Text="your profile and request a full refund within" FontSize="{StaticResource MediumFontSize}" 
+                           TextColor="{StaticResource PrimaryTextColor}" 
+                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                               />
+                        <Label Text="14 days of payment." FontSize="{StaticResource MediumFontSize}" 
+                           TextColor="{StaticResource PrimaryTextColor}" 
+                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                               />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
